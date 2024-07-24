@@ -9,7 +9,7 @@
 SELECT * 
 FROM world_layoffs.layoffs_staging2;
 
--- EASIER QUERIES
+
 
 SELECT MAX(total_laid_off)
 FROM world_layoffs.layoffs_staging2;
@@ -52,7 +52,6 @@ ORDER BY funds_raised_millions DESC;
 
 
 
--- SOMEWHAT TOUGHER AND MOSTLY USING GROUP BY--------------------------------------------------------------------------------------------------
 
 -- Companies with the biggest single Layoff
 
@@ -107,7 +106,6 @@ ORDER BY 2 DESC;
 
 
 
--- TOUGHER QUERIES------------------------------------------------------------------------------------------------------------------------------------
 
 -- Earlier we looked at Companies with the most Layoffs. Now let's look at that per year. It's a little more difficult.
 -- I want to look at 
@@ -137,7 +135,7 @@ FROM layoffs_staging2
 GROUP BY dates
 ORDER BY dates ASC;
 
--- now use it in a CTE so we can query off of it
+-- now used a CTE so we can query off of it
 WITH DATE_CTE AS 
 (
 SELECT SUBSTRING(date,1,7) as dates, SUM(total_laid_off) AS total_laid_off
